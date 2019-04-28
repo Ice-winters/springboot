@@ -7,6 +7,8 @@ import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerF
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.DispatcherType;
+
 /**
  * @Auther: Ice-winters
  * @Date: 2019/4/26 07:06
@@ -15,14 +17,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ErrorPageConfig {
 
-    @Bean
-//    public EmbeddedServletContainerCustomizer
-    public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> webServerFactoryCustomizer(){
-        return factory -> {
-            System.out.println("");
-            ErrorPage errorPage = new ErrorPage();
-
-            factory.addErrorPages();
-        };
-    }
+//    @Bean
+////    public EmbeddedServletContainerCustomizer
+//    public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> webServerFactoryCustomizer(){
+//
+//        return factory -> {
+//            System.out.println("");
+//            ErrorPage errorPage = new ErrorPage();
+//
+//            factory.addErrorPages();
+//        };
+//    }
 }
