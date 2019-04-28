@@ -30,15 +30,14 @@ public class MemberController implements DateBinder {
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     @ResponseBody
-    public Object add(@Valid Member member, BindingResult bindingResult){
+    public Object add(@Valid Member member/*, BindingResult bindingResult*/){
 //        System.out.println("add method " + bindingResult.hasErrors());
-        if (bindingResult.hasErrors()) {
+        /*if (bindingResult.hasErrors()) {
             bindingResult.getAllErrors().stream().forEach(objectError -> {
                 System.out.println("[错误信息] code = " + objectError.getCode() + "\t" + objectError.getDefaultMessage().toString());
             });
-        }
+        }*/
         return member;
     }
-
 
 }
