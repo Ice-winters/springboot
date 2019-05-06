@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+    <title>upload file you want</title>
+</head>
+<body>
+    <h3>请上传您的文件</h3>
+    <form action="/file/upload" enctype="multipart/form-data" method="post">
+        <p><b>please input your file 1 :</b> <input type="file" name="files" /></p>
+        <p><b>please input your file 2 :</b> <input type="file" name="files" /></p>
+        <p><b>please input your file 3 :</b> <input type="file" name="files" /></p>
+        <input type="text" value="" placeholder="请输入你要提交的文件路径" id="path"/>
+        <button value="submit" id="submit_btn" onclick="submit_method()">提交</button>
+
+    </form>
+
+    <script type="text/javascript">
+        var btn = document.getElementById("submit_btn");
+        var path = document.getElementById("path");
+        function submit_method(){
+            if(path.value.toString().trim() === "") {
+                alert("ActiveXObject");
+                alert("请输入您要提交的文件路径之后再进行提交操作!");
+            } else {
+                btn.submit();
+            }
+        }
+
+    </script>
+</body>
+</html>

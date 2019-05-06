@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>users</title>
+</head>
+<body>
+
+<h1>Hello World</h1><!--<br />-->
+<h1 th:text="${myuser.username}">Hello World</h1><!--<br />-->
+<h1 th:text="${myuser.getAge()}">Hello World</h1><!--<br />-->
+
+<h1 th:text="${mylist}">Hello World</h1>
+
+<!--这里开始就是遍历集合，并且是遍历值时判断是第几个就不输出来：-->
+<tr th:each="wen:${mylist}">
+    <br />
+    <td th:if="${wen != '我是第1个'}" th:text="${wen}">
+
+    </td>
+</tr>
+
+<hr/>
+
+<tr>
+    <td th:each="tds:${mylist}" th:text="${tds}" th:if="${tds != '我是第5个'}">
+
+    </td>
+</tr>
+<hr/>
+<br />
+
+
+<!--渲染-->
+这个是提取渲染：
+<div><p th:utext="${texthtml}"></p></div>
+<div><p th:text="${texthtml}"></p></div>
+
+<hr/>
+
+<!-- 时间日期格式转换-->
+这里开始时间格式转换：
+<td th:text="${#dates.format(myuser.birthday,'yyyy-MM-dd HH:mm:ss')}"  ></td><br/>
+<td th:text="${#dates.format(myuser.birthday,'yyyy-MM-dd')}" ></td>
+
+<hr/>
+
+<!-- 将值放进按钮中-->
+这个是下拉菜单，遍历集合，成下拉菜单:<br />
+<select>
+    <option value="">请选择</option>
+    <option th:each="list:${mylist}" th:text="${list}" th:value="${list.substring(list.length()-3,list.length())}"></option>
+</select>
+
+
+</body>
+</html>

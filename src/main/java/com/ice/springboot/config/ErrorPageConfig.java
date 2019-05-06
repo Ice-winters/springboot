@@ -21,18 +21,18 @@ import java.util.List;
 @Configuration
 public class ErrorPageConfig {
 
-//    @Bean
+    @Bean
 ////    public EmbeddedServletContainerCustomizer
-//    public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer(){
-//        return factory -> {
-//            ErrorPage errorPage_400 = new ErrorPage(HttpStatus.BAD_REQUEST, "/static/view/error-400");
-//            ErrorPage errorPage_404 = new ErrorPage(HttpStatus.NOT_FOUND, "/static/view/error-404");
-//            ErrorPage errorPage_500 = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/static/view/error-500");
-//            /*List<ErrorPage> errorPages = Arrays.asList(new ErrorPage(HttpStatus.BAD_REQUEST, "error-400"),
-//                    new ErrorPage(HttpStatus.NOT_FOUND, "error-404"),
-//                    new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "error-500"));*/
-//            factory.addErrorPages(errorPage_400,errorPage_404,errorPage_500);
-//        };
-//    }
+    public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer(){
+        return factory -> {
+            ErrorPage errorPage_400 = new ErrorPage(HttpStatus.BAD_REQUEST, "/error-400");
+            ErrorPage errorPage_404 = new ErrorPage(HttpStatus.NOT_FOUND, "/error-404");
+            ErrorPage errorPage_500 = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/error-500");
+            /*List<ErrorPage> errorPages = Arrays.asList(new ErrorPage(HttpStatus.BAD_REQUEST, "error-400"),
+                    new ErrorPage(HttpStatus.NOT_FOUND, "error-404"),
+                    new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "error-500"));*/
+            factory.addErrorPages(errorPage_400,errorPage_404,errorPage_500);
+        };
+    }
 
 }
