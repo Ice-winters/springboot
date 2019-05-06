@@ -13,7 +13,7 @@ public class FileUploadController {
 
     @PostMapping("/file/upload")
     public String handleFormUpload(String name, MultipartFile[] files,
-                                    @RequestParam(value = "path" ,required = false) String path) throws IOException {
+                                    @RequestParam(name = "path" ,required = false) String path) throws IOException {
 
         for (MultipartFile file : files){
             String originalFilename = file.getOriginalFilename();
