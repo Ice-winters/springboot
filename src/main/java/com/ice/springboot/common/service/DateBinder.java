@@ -1,6 +1,8 @@
 package com.ice.springboot.common.service;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.beans.propertyeditors.PropertiesEditor;
+import org.springframework.format.datetime.DateFormatter;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
@@ -21,5 +23,6 @@ public interface DateBinder {
         // 禁止自动计算转换
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+//        binder.addCustomFormatter(new DateFormatter("yyyy-MM-dd"));
     }
 }
