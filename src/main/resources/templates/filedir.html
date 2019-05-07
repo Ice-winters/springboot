@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>upload result</title>
+    <!--<script type="text/javascript" src="../static/js/filedir.js" ></script>-->
+</head>
+<body>
+
+<h1>文件上传结果</h1><!--<br />-->
+文件上传路径:  <p id="lookUpDir" style="color: #FF636E" th:utext=" ${upload_dir}"></p>
+
+
+<script type="text/javascript">
+    var lookupdir = document.getElementById("lookUpDir");
+    var textpath = lookupdir.innerText;
+    lookupdir.onclick = function (ev) {
+        // window.open("file:///"+textpath.trim());
+        // window.location.href = "";
+        window.location.assign(textpath.trim());
+    }
+</script>
+
+<hr/>
+
+
+
+
+
+</body>
+</html>

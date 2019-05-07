@@ -23,16 +23,24 @@ public class ErrorPageConfig {
 
     @Bean
 ////    public EmbeddedServletContainerCustomizer
-    public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer(){
+    public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer() {
         return factory -> {
-            ErrorPage errorPage_400 = new ErrorPage(HttpStatus.BAD_REQUEST, "/error-400");
-            ErrorPage errorPage_404 = new ErrorPage(HttpStatus.NOT_FOUND, "/error-404");
-            ErrorPage errorPage_500 = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/error-500");
+            // 注意这里要加上.html后缀  默认走的static下内容
+            ErrorPage errorPage_400 = new ErrorPage(HttpStatus.BAD_REQUEST, "/errorpages/error-400.html");
+            ErrorPage errorPage_404 = new ErrorPage(HttpStatus.NOT_FOUND, "/errorpages/error-404.html");
+            ErrorPage errorPage_405 = new ErrorPage(HttpStatus.METHOD_NOT_ALLOWED, "/errorpages/error-405.html");
+            ErrorPage errorPage_500 = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/errorpages/error-500.html");
             /*List<ErrorPage> errorPages = Arrays.asList(new ErrorPage(HttpStatus.BAD_REQUEST, "error-400"),
                     new ErrorPage(HttpStatus.NOT_FOUND, "error-404"),
                     new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "error-500"));*/
-            factory.addErrorPages(errorPage_400,errorPage_404,errorPage_500);
+            factory.addErrorPages(errorPage_400, errorPage_404, errorPage_405, errorPage_500);
         };
     }
+
+//    public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryWebServerFactoryCustomizer() {
+//        return factory -> {
+//            factory.addErrorPages();
+//        };
+//    }
 
 }

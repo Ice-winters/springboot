@@ -10,7 +10,7 @@
         <p><b>please input your file 1 :</b> <input type="file" name="files" /></p>
         <p><b>please input your file 2 :</b> <input type="file" name="files" /></p>
         <p><b>please input your file 3 :</b> <input type="file" name="files" /></p>
-        <input type="text" value="" placeholder="请输入你要提交的文件路径" id="path"/>
+        <input type="text" value="" placeholder="请输入你要提交的文件路径" id="path" name="path"/>
         <button value="submit" id="submit_btn" onclick="submit_method()">提交</button>
 
     </form>
@@ -22,6 +22,7 @@
             if(path.value.toString().trim() === "") {
                 alert("ActiveXObject");
                 alert("请输入您要提交的文件路径之后再进行提交操作!");
+                return false;
             } else {
                 btn.submit();
             }
