@@ -2,8 +2,8 @@ server:
   port: 80
 spring:
   thymeleaf:
-#    prefix: classpath:/templates/view/
-#    suffix: .html
+    prefix: classpath:/templates/
+    suffix: .html
     cache: false    # 开发环境不用开启缓存,方便ctrl+shift+F9 进行重新编译,无需重启服务
     check-template-location: true
     servlet:
@@ -16,3 +16,5 @@ spring:
     multipart:
       max-file-size: 5MB
       max-request-size: 20MB
+  mvc:
+    static-path-pattern: /static/**         # 很重要，否则template文件夹中的模板引入不了static中的资源文件 css js jpg 等

@@ -27,6 +27,8 @@ public class UserController {
 
         model.addAttribute("texthtml", "你好呀，我叫<b>马玉峰</b>，你呢？");
 
+        int mulResult = 200/ 0;
+
         return "user";
 
     }
