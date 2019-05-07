@@ -31,7 +31,7 @@ public class FileUploadController {
         }
         System.out.println("dest path is :" + path);
 
-        model.addAttribute("upload_dir", "<b><a>"+path+"</a></b>");
+        model.addAttribute("upload_dir", "<b><a id='lookUpDira'>"+path+"</a></b>");
         return "filedir";
     }
 
