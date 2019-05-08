@@ -13,7 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>springboot</name>
     <!--配置打包方式-->
-    <packaging>war</packaging>
+    <!--<packaging>war</packaging>-->
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -54,13 +54,13 @@
             </plugin>
 
             <!--打war包插件-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <warName>springboot-micro</warName>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-war-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<warName>springboot-micro</warName>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 
