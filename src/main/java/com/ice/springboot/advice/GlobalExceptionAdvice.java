@@ -18,7 +18,7 @@ public class GlobalExceptionAdvice {
 
     public static final String DEFAULT_ERROR_VIEW = "error";
 
-//    @ExceptionHandler(value = Exception.class)  // 所有的异常都是Exception的子类
+    @ExceptionHandler(value = Exception.class)  // 所有的异常都是Exception的子类
     public ModelAndView defaultErrorHandler(Exception e) {   // 出现异常会跳到此方法
         // 后去request方式1
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -34,7 +34,7 @@ public class GlobalExceptionAdvice {
 
     }
 
-    @ExceptionHandler(value = Exception.class)
+//    @ExceptionHandler(value = Exception.class)
     public Object defaultErrorAnotherHandler(HttpServletRequest request, Exception e){
 
         class ErrorInfo{

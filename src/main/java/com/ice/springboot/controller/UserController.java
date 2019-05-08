@@ -25,6 +25,9 @@ public class UserController {
         model.addAttribute("mylist", list);
         model.addAttribute("texthtml", "你好呀，我叫<b>马玉峰</b>，你呢？");
 
+
+
+
         return "user";
 
     }

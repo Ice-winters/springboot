@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>thymeleaf practice page</title>
+    <!--引入js文件-->
+    <script type="text/javascript" th:src="@{/static/js/main.js}"></script>
+</head>
+<body>
+<h3 th:text="${'thymeleaf practice page'}"></h3>
+<p th:text="'您的私有域名: '+ ${url} "></p>
+<p th:text="'您的名字: '+ ${owner} "></p>
+<hr/>
+
+<h3 th:text="#{member.age.notnull.error}"></h3>
+<hr/>
+
+<a th:href="@{/users}" th:text="查看用户信息"></a>
+
+</body>
+</html>
