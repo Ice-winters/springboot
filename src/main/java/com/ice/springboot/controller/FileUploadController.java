@@ -5,10 +5,13 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class FileUploadController {
@@ -34,7 +37,22 @@ public class FileUploadController {
         model.addAttribute("upload_dir", "<b><a id='lookUpDira'>"+path+"</a></b>");
         return "filedir";
     }
-
+    @PostMapping("/file/upload_2")
+    @ResponseBody
+    public Map<String, String> handleFormUpload(String name, MultipartFile[] multipleFile){
+        for (MultipartFile file : multipleFile) {
+            String originalFilename = file.getOriginalFilename();
+            System.out.println("file name is :" + originalFilename);
+            if (originalFilename.isEmpty())
+                continue;
+//            file.transferTo(new File(path + "/" + originalFilename));
+        }
+//        System.out.println("dest path is :" + path);
+        Map<String,String> map = new HashMap<String , String>(16,0.75f);
+        map.put("username","ice-winters");
+        map.put("userage","27");
+        return map;
+    }
 
     /**
      * 创建多级目录文件
