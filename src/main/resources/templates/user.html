@@ -51,7 +51,58 @@
     <option value="">请选择</option>
     <option th:each="list:${mylist}" th:text="${list}" th:value="${list.substring(list.length()-3,list.length())}"></option>
 </select>
+<hr/>
+<div th:object="${user}">
+    <span th:text="${user.username}"></span><br/>
+    <span th:text="*{birthday}"></span><br/>
+    <span th:text="*{#calendars.format(birthday,'生日： yyyy-MM-dd HH:mm:ss') }"></span>
+
+</div>
+<hr/>
+<!--th:if    th:each-->
+<span th:text="${perlistEle}" th:if="${!perlistEle.contains('5')}" th:each="perlistEle : ${mylist}">
+</span>
+<hr/>
+
+<span th:text="${perlistEle}+'th:if'" th:if="${perlistEle.contains('5')}" th:each="perlistEle : ${mylist}">
+</span>
+<hr/>
+
+<span th:text="${perlistEle}+'th:unless'" th:unless="${!perlistEle.contains('5')}" th:each="perlistEle : ${mylist}">
+</span>
+<hr/>
 
 
+thymeleaf 中的switch中没有default，用* 代替
+<span th:switch="${perlist}" th:each="perlist:${mylist}">
+    <p th:case="我是第2个" th:text="${perlist}+' ----  这个list元素中包含有2'"></p>
+    <p th:case="我是第4个" th:text="${perlist}+' ----  这个list元素中包含有4'"></p>
+    <p th:case="*" th:text="${perlist}+' ----  这个list元素中没有2 和 4'"></p>
+</span>
+<hr/>
+
+<div>
+    <table border="2px"  bgcolor="#faebd7" cellspacing="0px" style="border-color: #FF636E ; ">
+        <tr><td>序号</td><td>用户名</td><td>年龄</td><td>生日</td></tr>
+        <tr th:each="user,xuhao : ${users}">
+            <td th:text="${xuhao.index + 1}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${#dates.format(user.birthday,'yyyy-MM-dd HH:mm:ss')}"></td>
+        </tr>
+    </table>
+</div>
+<hr/>
+
+
+
+
+
+
+<hr/>
+
+<div th:replace="~{./fotter.html}"></div>
+
+<div th:replace="@{/templates/fotter.html::companyInfo}"></div>
 </body>
 </html>

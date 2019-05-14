@@ -15,7 +15,7 @@ window.onload = function (ev) {
             if (httpRequest.status == 200) {
                 console.log(httpRequest.responseText);
 
-
+1
             } else {
 
             }

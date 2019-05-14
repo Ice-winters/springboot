@@ -48,7 +48,7 @@ public class FileUploadController {
 //            file.transferTo(new File(path + "/" + originalFilename));
         }
 //        System.out.println("dest path is :" + path);
-        Map<String,String> map = new HashMap<String , String>(16,0.75f);
+        Map<String,String> map = new HashMap<>(16,0.75f);
         map.put("username","ice-winters");
         map.put("userage","27");
         return map;
