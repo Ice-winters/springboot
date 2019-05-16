@@ -101,8 +101,10 @@ thymeleaf 中的switch中没有default，用* 代替
 
 <hr/>
 
-<div th:replace="~{./fotter.html}"></div>
+<div th:replace="~{fotter.html::companyInfo}"></div>
 
-<div th:replace="@{/templates/fotter.html::companyInfo}"></div>
+<div th:include="~{fotter.html::companyInfo}"></div>
+
+<div th:insert="~{fotter.html::companyInfo}"></div>
 </body>
 </html>
