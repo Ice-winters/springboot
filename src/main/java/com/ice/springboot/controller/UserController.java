@@ -25,13 +25,7 @@ public class UserController {
         model.addAttribute("mylist", list);
         model.addAttribute("texthtml", "你好呀，我叫<b>马玉峰</b>，你呢？");
 
-        model.addAttribute("user",user);
 
-        List<User> users = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            users.add(new User("ice-winters" + (i + 1), 25, new Date()));
-        }
-        model.addAttribute("users",users);
 
 
         return "user";
