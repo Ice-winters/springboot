@@ -22,7 +22,7 @@ public class TestDataSource {
     @Test
     public void testConnection (){
         try (Connection connection = dataSource.getConnection()) {
-            System.out.println(connection);
+            System.out.println("myconnection ===> " + connection);
 
         }catch (SQLException e) {
             e.printStackTrace();
