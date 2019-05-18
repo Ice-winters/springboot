@@ -18,3 +18,16 @@ spring:
       max-request-size: 20MB
   mvc:
     static-path-pattern: /static/**         # 很重要，否则template文件夹中的模板引入不了static中的资源文件 css js jpg 等
+  # 配置数据源
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource    #数据源操作类型
+    url: jdbc:mysql://localhost:3306/ice-demo?characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: root
+    password: 1248
+    dbcp2:
+      min-idle: 5                                   #数据库连接池最小维持连接数
+      initial-size: 5                               #初始化连接数
+      max-total: 10                                 #最大连接数
+      max-wait-millis: 200                          #等待连接超时时间
+
