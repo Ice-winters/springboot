@@ -1,11 +1,14 @@
 package com.ice.springboot.config;
 
 import com.ice.springboot.interceptors.CustomHandlerInterceptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -51,9 +54,14 @@ public class WebConfig {
 
 
     class MyInterceptor implements HandlerInterceptor {
+
+        Logger logger = LoggerFactory.getLogger(MyInterceptor.class);
+
         @Override
         public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-
+//            HandlerMethod handlerMethod = (HandlerMethod) handler;
+//            String methodName = handlerMethod.getMethod().getName();
+//            logger.info("方法名字为===>"+ methodName);
             return true;
         }
 

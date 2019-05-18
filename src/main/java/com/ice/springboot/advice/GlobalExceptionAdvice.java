@@ -12,13 +12,13 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 //@ControllerAdvice()     // 作为一个控制层切面处理
-@RestControllerAdvice
+//@RestControllerAdvice
 public class GlobalExceptionAdvice {
 
 
     public static final String DEFAULT_ERROR_VIEW = "error";
 
-    @ExceptionHandler(value = Exception.class)  // 所有的异常都是Exception的子类
+//    @ExceptionHandler(value = Exception.class)  // 所有的异常都是Exception的子类
     public ModelAndView defaultErrorHandler(Exception e) {   // 出现异常会跳到此方法
         // 后去request方式1
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();

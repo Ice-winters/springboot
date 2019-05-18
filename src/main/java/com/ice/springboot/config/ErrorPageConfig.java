@@ -26,10 +26,10 @@ public class ErrorPageConfig {
     public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer() {
         return factory -> {
             // 注意这里要加上.html后缀  默认走的static下内容
-            ErrorPage errorPage_400 = new ErrorPage(HttpStatus.BAD_REQUEST, "/errorpages/error-400.html");
+            ErrorPage errorPage_400 = new ErrorPage(HttpStatus.BAD_REQUEST, "/static/errorpages/error-400.html");
             ErrorPage errorPage_404 = new ErrorPage(HttpStatus.NOT_FOUND, "/static/errorpages/error-404.html");
-            ErrorPage errorPage_405 = new ErrorPage(HttpStatus.METHOD_NOT_ALLOWED, "/errorpages/error-405.html");
-            ErrorPage errorPage_500 = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/errorpages/error-500.html");
+            ErrorPage errorPage_405 = new ErrorPage(HttpStatus.METHOD_NOT_ALLOWED, "/static/errorpages/error-405.html");
+            ErrorPage errorPage_500 = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/static/errorpages/error-500.html");
             /*List<ErrorPage> errorPages = Arrays.asList(new ErrorPage(HttpStatus.BAD_REQUEST, "error-400"),
                     new ErrorPage(HttpStatus.NOT_FOUND, "error-404"),
                     new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "error-500"));*/
