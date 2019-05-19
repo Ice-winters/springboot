@@ -1,6 +1,9 @@
+# 配置服务端口号
 server:
   port: 80
+
 spring:
+  # 配置thymeleaf模板引擎
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
@@ -12,7 +15,9 @@ spring:
     encoding: utf-8
     excluded-view-names:
     mode: HTML
+
   servlet:
+    # 配置文件上传大小
     multipart:
       max-file-size: 5MB
       max-request-size: 20MB
@@ -21,14 +26,18 @@ spring:
   # 配置数据源
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource    #数据源操作类型
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver     #mysql数据库驱动，当前版本可以省略此配置，因为默认已经配置这个了
     username: root
-    password: 1248
+    password: icewinters
     # 注意 结尾要加上&serverTimezone=GMT%2B8  指定时区
-    url: jdbc:mysql://localhost:3306/ice-demo?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/ice_demo?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&serverTimezone=GMT%2B8
     dbcp2:
       min-idle: 5                                   #数据库连接池最小维持连接数
       initial-size: 5                               #初始化连接数
       max-total: 10                                 #最大连接数
       max-wait-millis: 200                          #等待连接超时时间
-
+#mybatis配置
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml                  #mybatis配置文件路径
+  type-aliases-package: com.ice.springboot.vo                         #定义所有的resultType等操作类的所在包
+  mapper-locations: classpath:mybatis/mapper/**/*Mapper.xml           #所有mapper映射文件
